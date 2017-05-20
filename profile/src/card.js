@@ -71,7 +71,7 @@ class Singleee extends Component{
 
        render(){
          return  <div>
-		<p><b>作品：</b><span><a href="https://github.com/wecandothis/profile">作品源代码github地址</a></span></p>
+		<p><b>作品：</b><span><a href="https://github.com/wecandothis/my-profile/tree/master/profile">作品源代码github地址</a></span></p>
 		<p><b>技术栈：</b><span>react+webpack</span></p>
 		<p><b>图片来源：</b><span><a href="http://www.easyicon.net/iconsearch/Five%20corner%20row/">Five corner row</a></span></p>
         <p><b>字体来源：</b><span><a href="https://www.youziku.com/">有字库</a></span></p>
