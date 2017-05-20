@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './css/App.css';
+import Fixed from './title'
+import Card from './card'
 
 //引用图片的基本信息
-const items = [
-      {name: 'Bangkok', image: '/uploads/161101/boldybae1.jpg?dl=1'},
-      {name: 'Forest', image: '/uploads/161101/boldybae2.jpg?dl=1'},
-      {name: 'London', image:'http://ericbrewer.ca/images/stockImages/londonStation.jpg?dl=1'},
-      {name: 'River', image:'http://ericbrewer.ca/images/stockImages/mistRiver.jpg?dl=1'}
-    ];
+var items=require('./data.json')
+   
 
 
 class Gallery extends Component{
@@ -15,10 +13,11 @@ class Gallery extends Component{
     super(props);
     this.items = items;
     this.defaultCardPos = {top:'-200%', left:0}
-    this.state={activeItem: false, cardTop:this.defaultCardPos.top, cardLeft:this.defaultCardPos.left, cardActive:false}
+    this.state={activeItem: false,information:false, cardTop:this.defaultCardPos.top, cardLeft:this.defaultCardPos.left, cardActive:false}
   }
-  handleItemClick(name, item){
-    this.setState({activeItem: name})
+  //单一点击后获取数据
+  handleItemClick(name, item,key){
+    this.setState({activeItem: name,information:key})
     let oTop = item.offsetTop,
         oLeft = item.offsetLeft;
     this.setState({cardTop:oTop, cardLeft:oLeft});
@@ -39,7 +38,7 @@ class Gallery extends Component{
   renderGallery(){
     return this.items.map( item=>{
       const activeClass = this.state.cardActive ? 'active' : '';//this.state.activeItem == item.name ? 'active' : '';
-      return <GalleryItem name={item.name} background={item.image} active={activeClass} clickFunction={this.handleItemClick.bind(this)}>
+      return <GalleryItem name={item.name} key={item.index} information={item.index} background={item.image} active={activeClass} clickFunction={this.handleItemClick.bind(this)}>
         <h2>{item.name}</h2>
         <div className="item-mask" />
       </GalleryItem>
@@ -48,12 +47,14 @@ class Gallery extends Component{
   render(){
     const maskActive = '';//this.state.activeItem ? "active" : "";
     const galleryBackground = this.state.activeItem ? this.getBackgroundImage(this.state.activeItem) : '';
-    return <div className="gallery">
+    return (<div className="containdiv">
+    <Fixed />
+    <div className="gallery"> 
       {this.renderGallery()}
-      <Card title={this.state.activeItem} ref="card" top={this.state.cardTop} left={this.state.cardLeft} active={this.state.cardActive} closeFunction={this.handleCardClick.bind(this)} />
+      <Card title={this.state.activeItem} index={this.state.information} ref="card" top={this.state.cardTop} left={this.state.cardLeft} active={this.state.cardActive} closeFunction={this.handleCardClick.bind(this)} />
       <div className={`gallery-mask ${maskActive}`} />
       <div className={`backdrop ${this.state.activeItem ? 'active' : ''}`} style={{'backgroundImage': `url(${galleryBackground})`}} onClick={this.handleCardClick.bind(this)}/>
-    </div>
+    </div></div>)
   }
 }
 
@@ -64,40 +65,14 @@ class GalleryItem extends Component{
   }
   handleClick(e){
     e.preventDefault();
-    this.props.clickFunction(this.props.name, this.refs.el)
+    this.props.clickFunction(this.props.name, this.refs.el,this.props.information)
   }
   render(){
-    const style ={'background-image': `url(${this.props.background})`};
+    const style ={'backgroundImage': `url(${this.props.background})`};
     return <div ref="el" className={`gallery-item ${this.props.active}`} style={style} onClick={this.handleClick.bind(this)}>{this.props.children}</div>
   }
 }
 
-
-class Card extends Component {
-  constructor(props){
-    super(props)
-    this.state= {transit:false}
-  }
-  handleClose(e){
-    e.preventDefault();
-    this.setState({transit:true});
-    this.timeout = setTimeout(()=>{
-      this.setState({transit:false})
-      this.props.closeFunction();
-    }, 400);
-  }
-  render(){
-    const activeClass = this.props.active ? "active" : "";
-    const transitClass = this.state.transit ? "transit" : "";
-    return(
-      <div className={`card ${activeClass} ${transitClass}`} style={{'left':this.props.left, 'top':this.props.top}}>
-        <h2>{this.props.title}</h2>
-        <a className="btn-close" onClick={this.handleClose.bind(this)}>Close x</a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus placerat vitae mi ut lobortis. In vehicula, risus eu rhoncus ornare, augue mauris volutpat justo, ut pellentesque libero turpis quis leo. Nam id porttitor enim, eget tempor arcu. Nulla blandit accumsan tellus in tristique. Praesent pellentesque quis nisi sit amet accumsan. Cras quam dui, pulvinar eget finibus eget, tincidunt in nisl. Vestibulum vulputate fringilla odio, eu porta mi porta ut. Cras fermentum porttitor mi, vel dignissim dui egestas sed. Pellentesque sapien nunc, commodo ut libero at, molestie venenatis urna. Fusce commodo enim magna, ac efficitur arcu dictum in.</p>
-      </div>
-    );
-  }
-}
 
 
 

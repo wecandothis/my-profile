@@ -5,5 +5,5 @@ import './css/index.css';
 
 ReactDOM.render(
   <Gallery />,
-  document.getElementById('root')
+  document.getElementById('portfolio')
 );
