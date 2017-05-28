@@ -68,11 +68,11 @@ class Singlee extends Component {
     <p><b>码源地址:</b><a href="https://github.com/wecandothis/my-profile/tree/master/profile">github</a></p>
     <p><b>技术栈：</b><span>react+webpack</span></p>
     <h3>2.</h3>
-    <p><b>作品介绍:</b><span>这是本地存储标签墙</span><a href="https://github.com/wecandothis/Localstorage/tree/master/storage">GO SEE</a></p>
+    <p><b>作品介绍:</b><span>这是本地存储标签墙</span><a href="https://wecandothis.github.io/Localstorage/">GO SEE</a></p>
     <p><b>码源地址:</b><a href="https://github.com/wecandothis/Localstorage/tree/master/storage">github</a></p>
     <p><b>技术栈：</b><span>react+webpack</span></p>
      <h3>3.</h3>
-    <p><b>作品介绍:</b><span>这是异地存储标签墙</span><a href="https://github.com/wecandothis/Localstorage/tree/master/storage">GO SEE</a></p>
+    <p><b>作品介绍:</b><span>这是异地存储标签墙</span><a href="https://wecandothis.github.io/asynstorage/">GO SEE</a></p>
     <p><b>码源地址:</b><a href="https://github.com/wecandothis/asynstorage/tree/master/asys">github</a></p>
     <p><b>技术栈：</b><span>react+webpack</span></p>
     </div>
