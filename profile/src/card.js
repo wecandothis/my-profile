@@ -62,7 +62,20 @@ class Single extends Component {
 class Singlee extends Component {
   
 	render(){
-    return  <div>aaa</div>
+    return  <div>
+    <h3>1.</h3>
+    <p><b>作品介绍:</b><span>这是个人简介</span></p>
+    <p><b>码源地址:</b><a href="https://github.com/wecandothis/my-profile/tree/master/profile">github</a></p>
+    <p><b>技术栈：</b><span>react+webpack</span></p>
+    <h3>2.</h3>
+    <p><b>作品介绍:</b><span>这是本地存储标签墙</span><a href="https://github.com/wecandothis/Localstorage/tree/master/storage">GO SEE</a></p>
+    <p><b>码源地址:</b><a href="https://github.com/wecandothis/Localstorage/tree/master/storage">github</a></p>
+    <p><b>技术栈：</b><span>react+webpack</span></p>
+     <h3>3.</h3>
+    <p><b>作品介绍:</b><span>这是异地存储标签墙</span><a href="https://github.com/wecandothis/Localstorage/tree/master/storage">GO SEE</a></p>
+    <p><b>码源地址:</b><a href="https://github.com/wecandothis/asynstorage/tree/master/asys">github</a></p>
+    <p><b>技术栈：</b><span>react+webpack</span></p>
+    </div>
 
 
 	}
@@ -76,7 +89,7 @@ class Singleee extends Component{
 		<p><b>图片来源：</b><span><a href="http://www.easyicon.net/iconsearch/Five%20corner%20row/">Five corner row</a></span></p>
         <p><b>字体来源：</b><span><a href="https://www.youziku.com/">有字库</a></span></p>
         <p><b>环境搭建：</b><span>github上的<a href="https://github.com/facebookincubator/create-react-app">create-react-app</a></span></p>
-        <p><b>额外的话：</b><span>接触编程大半年了，这段时间都是利用空闲时间慢慢自学，因为没有系统的学习与大神的教导，网页效果与代码质量可能没有那么专业，希望能够理解，希望在以后的日子能够得到较专业的学习提议提高</span></p>
+        <p><b>额外的话：</b><span>接触编程大半年了，这段时间都是利用空闲时间慢慢自学，因为没有系统的学习与大神的教导，网页效果与代码质量可能没有那么专业，希望能够理解，希望在以后的日子能够得到较专业的学习来提高，最后一句，求工作！</span></p>
 
         
 
