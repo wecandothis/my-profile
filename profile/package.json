@@ -20,5 +20,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://wocandothis.github.io/my-proflie"
+   "homepage": "https://wecandothis.github.io/my-profile"
+
+  
 }

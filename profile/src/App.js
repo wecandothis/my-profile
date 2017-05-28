@@ -2,9 +2,32 @@ import React, { Component } from 'react';
 import './css/App.css';
 import Fixed from './title'
 import Card from './card'
+import Bangkok from './images/Bangkok.jpg'
+import newYork from './images/newYork.jpg'
+import wheatField from './images/wheatField.jpg'
+
+
 
 //引用图片的基本信息
-var items=require('./data.json')
+var items=[
+     {name: "个人资料",
+      index:"1", 
+      image: Bangkok,
+      information:"add same"
+       },
+      {name: "代表作品",
+      index:"2", 
+       image: newYork,
+       information:"add same"
+       },
+      {name: "项目介绍", 
+      index:"3", 
+      image: wheatField,
+      information:"add same"
+  }
+
+
+]
    
 
 
@@ -47,7 +70,7 @@ class Gallery extends Component{
   render(){
     const maskActive = '';//this.state.activeItem ? "active" : "";
     const galleryBackground = this.state.activeItem ? this.getBackgroundImage(this.state.activeItem) : '';
-    return (<div className="containdiv">
+    return (<div className="containdiv" >
     <Fixed />
     <div className="gallery"> 
       {this.renderGallery()}
